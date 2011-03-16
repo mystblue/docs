@@ -1,0 +1,139 @@
+/** スタイルシート */
+/** type : ビジネス */
+/** version : 0.1 */
+body {
+  margin-left : 5%;
+  margin-right : 5%;
+  font-size : 14px;
+  line-height : 160%;
+}
+
+/*******************************************************************************
+  ヘッダ
+*******************************************************************************/
+h1 {
+  color : #797E9D;
+}
+h2 {
+  color : #1B1B77;
+  border-bottom : 1px dotted #1B1B77;
+}
+h3 {
+  color: #1B1B77;
+  margin-left : 0.4em;
+}
+pre {
+  margin : 0px;
+  line-height : 100%;
+  background-color : rgb(240, 240, 240);
+  padding : 5px;
+  border : 1px solid grey;
+}
+
+/*******************************************************************************
+  DIV
+*******************************************************************************/
+div {
+  margin-left: 1em;
+}
+div.api {
+  background-color : rgb(240, 240, 240);
+  padding : 5px;
+}
+div.code {
+  /** 等幅フォント（プロポーショナルフォント） */
+  font-family: monospace;
+  /**white-space: pre;*/
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 5px;
+  border: 1px solid rgb(200,200,230);
+  background: rgb(230,230,230);
+}
+div.edition {
+  text-align : right;
+}
+blockquote {
+margin: 5px 5px 5px 1em;
+padding: 5px;
+border: 3px double rgb(200,200,230);
+background: rgb(230,230,230);
+}
+blockquote.simple {
+border: 1px solid gray;
+background-color: rgb(240,240,240);
+padding: 3px;
+}
+p {
+text-indent : 1em;
+}
+div.code {
+  background-color : rgb(240, 240, 240);
+  border : 1px double rgb(200,200,200);
+  padding : 5px;
+}
+div.code span {
+  color:green;
+}
+/** テーブル */
+table {
+border: 1px rgb(230, 230, 230) solid;
+border-collapse: collapse;
+border-spacing: 0px;
+}
+th {
+border: 1px rgb(230, 230, 230) solid;
+padding : 3px 10px 3px 10px;
+text-align : left;
+background-color: rgb(240, 240, 230);
+}
+td {
+border: 1px rgb(230, 230, 230) solid;
+vertical-align : top;
+padding : 3px 10px 3px 10px;
+}
+caption {
+text-align: left;
+font-weight: bold;
+}
+/**th {
+font-size: 13px;
+font-weight: normal;
+padding: 8px;
+background: #b9c9fe;
+border-top: 4px solid #aabcfe;
+border-bottom: 1px solid #fff;
+color: #039;
+}
+td {
+font-size: 13px;
+padding: 8px;
+background: #e8edff;
+border-bottom: 1px solid #fff;
+color: #669;
+border-top: 1px solid transparent;
+}*/
+/** リスト */
+li {
+margin-top: 0.2em;
+margin-bottom: 0.2em;
+}
+span.comment {
+color: green;
+}
+a:link {
+color: blue;
+text-decoration: none;
+}
+a:visited {
+color: blue;
+text-decoration: none;
+}
+a:hover {
+color: red;
+text-decoration: underline;
+}
+a:active {
+color: red;
+text-decoration: underline;
+}

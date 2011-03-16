@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="default.css" />
+    <title>java</title>
+  </head>
+  <body>
+    <h1>java</h1>
+    <div class="edition">1.1 版</div>
+    <h2>java command</h2>
+    <div class="api">
+      java [クラス名]
+    </div>
+    <div>
+      または
+    </div>
+    <div class="api">
+      java -jar [jar ファイル名]
+    </div>
+    
+    <h2>javac command</h2>
+    <div>
+      javac [java ファイル名]
+    </div>
+    <div>
+      <dl>
+        <dt>source</dt>
+        <dd>ソースのバージョン 1.4 1.5 5 など</dd>
+        <dt>target</dt>
+        <dd>指定されたバージョンの VM 上で動作するクラスファイルを生成します。</dd>
+        <dt>classpath</dt>
+        <dd>クラスパスを指定します。指定しない場合は、「-classpath . 」が指定したものとみなされされます。また、クラスパスを複数指定するには、「;」で区切ります。「.」も指定しない場合は、検索されません。</dd>
+        <dt>ea</dt>
+        <dd>"-ea" は、システムクラスを除いた、全てのクラスでアサーションを有効にします。</dd>
+      </dl>
+    </div>
+    
+    <h2>javap command</h2>
+    <div class="api">
+      javap -verbose [クラス名]
+    </div>
+    <div>
+      java のクラスのバージョンを表示する。
+    </div>
+    
+    <h2>クラスローダー</h2>
+    <div>
+      J2SE で定義されているクラスローダが次の3つです。
+      <ul>
+        <li>ブートストラップクラスローダ（初期クラスローダ）：コアパッケージなど (rt.jar, i18n.jar) のクラスローダ</li>
+        <li>拡張クラスローダ：拡張機能機能のインストール型オプションパッケージ (lib/ext) のクラスローダ</li>
+        <li>ユーザ定義クラスローダ（システムクラスローダ、アプリケーションクラスローダ）</li>
+      </ul>
+    </div>
+  </body>
+</html>
