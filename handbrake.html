@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="default.css" />
+    <title>Handbrake</title>
+  </head>
+  <body>
+    <h1>Handbrake</h1>
+    <h2>使い方</h2>
+    <h2>エンコード設定</h2>
+    <h2>Handbrake オプション</h2>
+    <h2>x264 オプション</h2>
+    <dl>
+      <dt>cabac</dt>
+      <dd>エンコードは遅く、デコードには負荷が増えるが、ビットレートは10〜15%下がる。デコードの速度を求めるので無い限り、オフにしない方が良い。
+
+    * CABAC=Context-Adaptive Binary Arithmetic Coding = 適応２進法算術符号化
+    * nocabacの場合、CAVLCが適用される。iPod用はこちら。
+    * Doom9ではApple-H.264はそもそもCABAC非対応としているが、特に再生は問題ない。
+</dd>
+      
+      <dt>bframes</dt>
+      <dd>adaptive B-frame decision がオフの場合(nob_adapt)、一般的な最適値はbframes=1以下。これ以上の値にすると動きの多いシーンで画質劣化が起きる。 adaptive B-frame decision がオンの場合は(default)、エンコーダ側がB-frameの使用を制御するので値を大きくしても問題ないが、3や4以上の値を指定しても効果は薄い。</dd>
+      
+      <dt>frameref (ref)</dt>
+      <dd>デフォルトは1。frameref=3では目で見て解る違いが出る。速度低下は15％程度。素材次第だが、これ以上の値にしても効果はあまり上がらない。</dd>
+      
+      <dt>me</dt>
+      <dd>フルピクセルの動き補償アルゴリズム選択。デフォルトはme=hex。me=umhはより高品質だが速度は低下する。速度程度はframerefに依存し、frameref=3で速度低下は25-30%。me=esaは実際に使うには遅すぎるので×。dia　ダイヤモンドサーチ、半径 1 (高速) 　hex　六角形サーチ、半径 2 (デフォルト) 　umh　不等複数六角形サーチ　esa　徹底サーチ (超低速、umhより全く良くなるところが無い) ＊esaは実用には遅すぎる。<a href="http://agehatype0.blog50.fc2.com/?tag=--me">参照先。</a></dd>
+      
+      <dt>b_adapt</dt>
+      <dd>デフォルトでオン、nob_adapt でオフ。bframes=0-16で指定された最大Bフレーム数の範囲で、いつ、どれだけの数のBフレームを使うか自動的に決断する。 オフの場合、前述のbframes=<0-16>(デフォルトで0)の最大Bフレーム数を使用する。weight_bとの併用はあまり意味がない模様。将来、チューニングが進めば変わる可能性もある。</dd>
+      
+      <dt>partitions (analyse) </dt>
+      <dd>list 	適用タイプ 	備考
+p8x8 	p16x8, p8x16, p8x8 	
+p4x4 	p8x4, p4x8, p4x4 	p4x4推奨はsubq=5かつ低解像度の場合のみ。
+b8x8 	b16x8, b8x16, b8x8. 	
+i8x8 	i8x8 	i8x8は8x8dctと一緒に使わないと無意味。
+i4x4 	i4x4. 	
+all 	上記全て有効 	10-15%速度低下。動きの少ない素材にはほとんど意味がない。動きの多い素材、とりわけ小さな動く物体が大量にある素材では効果が期待できる。
+none 	上記全て無効 	
+
+    * 画質　区分を指定すればするほど x264 は使える選択肢が増えて画質が大きく向上する。
+    * 再生　none は Baseline Profile 、i8x8 を含むと High Profile 、それ以外は Main Profile 。 none を all にするとデコード負荷が 1 割ほど増える。
+
+エンコードで使うマクロブロック・タイプを選択。 種類はできるだけ沢山使う方がx264の判断が賢くなる。例えば、ディテイルがちょびっとしかないモーションブロックには16x16が適している一方、ディテイルの精細なブロックには4x4が適している。つまり基本的にこのオプションはマクロブロックの効率的な符号化をもたらすという事だ。このオプションの有用度はサブペル動き予測の方式に依存する。p4x4を使うにはp8x8が、i8x8を使うには 8x8dctが必要。
+
+指定するpartitionsの数に比例してx264 がエンコードに使う機能の選択肢が増えるため、画質は向上するが速度低下とデコード負荷が増える。
+</dd>
+      
+      <dt>8x8dct</dt>
+      <dd>Analyse=allの時、8×8ブロックの画素にキーフレームを分解。デコード負荷は増えない。画質は確実に向上。速度は10～20%ほど低下。優秀なオプションだがこのオプションを指定するとHigh Profileになるので、互換性には注意。</dd>
+      
+      <dt>subme</dt>
+      <dd>よりきめ細かな動き予測の設定。値が高いほど精度が上がるが遅くなる。デフォルト値は6。6,7ではRate Distortion Optimisation （RDO, レート歪最適化）が使える。</dd>
+    </dl>
+  </body>
+</html>
